@@ -23,6 +23,8 @@ Python test automation project for [Swag Labs](https://www.saucedemo.com/).
 - Selenium actions wrapper methods with logs are fully encouraged.
 - [Python typing](https://docs.python.org/3/library/typing.html) in parameters and return types are nice whenever possible.
 - Documentation is always good way to be kind with your teammates and your future self (one-line comments and python docs).
+- One fuction/method should do one and only one thing.
+- Environment (Non-test) errors shouldn't pass silently. Imagine the worst and raise exceptions!
 - Running tests from the terminal instead of modifying code is always better. Try your own Python file that accepts arguments to run different tests/suites and configurations.
 
 ## Useful links:
