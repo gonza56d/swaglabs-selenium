@@ -27,6 +27,7 @@ Python test automation project for [Swag Labs](https://www.saucedemo.com/).
 - One fuction/method should do one and only one thing and do it well.
 - Environment (Non-test) errors shouldn't pass silently. Imagine the worst and raise exceptions!
 - Running tests from the terminal instead of modifying code is always better. Try your own Python file that accepts arguments to run different tests/suites and configurations.
+- For configurations files such as different users data you can use [configparser](https://docs.python.org/3/library/configparser.html) with .ini files.
 
 ## Useful links:
 - [Browsers drivers](https://www.selenium.dev/documentation/getting_started/installing_browser_drivers)
