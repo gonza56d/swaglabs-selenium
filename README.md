@@ -15,7 +15,7 @@ Python test automation project for [Swag Labs](https://www.saucedemo.com/).
 - The POM and [BDD](https://behave.readthedocs.io/en/stable/tutorial.html) patterns must be followed.
 - One branch per test implementation.
 - Develop branch must be used.
-- Use a separate Python file for project settings purposes.
+- Use a separate Python module/package for project settings purposes.
 - Use pyunitreport's HTMLTestRunner for HTML test reports. ([Quick example](https://github.com/gonza56d/pyrty_automation/blob/master/runner.py))
 
 ## Encouraged:
