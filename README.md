@@ -21,6 +21,7 @@ Python test automation project for [Swag Labs](https://www.saucedemo.com/).
 ## Encouraged:
 - Follow DRY as much as possible.
 - Selenium actions wrapper methods with logs are fully encouraged.
+- Logs are nice.
 - [Python typing](https://docs.python.org/3/library/typing.html) in parameters and return types are nice whenever possible.
 - Documentation is always good way to be kind with your teammates and your future self (one-line comments and python docs).
 - One fuction/method should do one and only one thing.
