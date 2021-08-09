@@ -1,9 +1,9 @@
-# Test automation challenge: SwagLabs
+# Test automation challenge: Swag Labs
 
 ---
 
 ## Description:
-Python test automation project for https://www.saucedemo.com/.
+Python test automation project for [Swag Labs](https://www.saucedemo.com/).
 
 ## Rules:
 - Use Python 3.7 or newer version.
