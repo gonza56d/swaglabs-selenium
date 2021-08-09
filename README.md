@@ -7,7 +7,7 @@ Python test automation project for [Swag Labs](https://www.saucedemo.com/).
 
 ## Rules:
 - Use Python 3.7 or newer version.
-- Use Selenium to automate SwagLabs web app.
+- Use Selenium to automate [Swag Labs](https://www.saucedemo.com/).
 - Use virtualenv, although it must be git ignored.
 - Add dependencies in a requirements.txt file.
 - The project must work with both Google Chrome and Mozilla Firefox.
