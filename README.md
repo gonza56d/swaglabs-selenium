@@ -21,5 +21,10 @@ Python test automation project for https://www.saucedemo.com/.
 ## Encouraged:
 - Follow DRY as much as possible.
 - Selenium actions wrapper methods with logs are fully encouraged.
-- Python typing in parameters and return types are nice whenever possible.
+- [Python typing](https://docs.python.org/3/library/typing.html) in parameters and return types are nice whenever possible.
 - Documentation is always good way to be kind with your teammates and your future self (one-line comments and python docs).
+- Running tests from the terminal instead of modifying code is always better. Try your own Python file that accepts arguments to run different tests/suites.
+
+## Useful links:
+- [Browsers drivers](https://www.selenium.dev/documentation/getting_started/installing_browser_drivers)
+- [BDD quick tutorial](https://behave.readthedocs.io/en/stable/tutorial.html)
