@@ -2,7 +2,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait as WDW
 from selenium.webdriver.support import expected_conditions as EC
 from time import sleep
-
+#TODO PEP 8: "Surround top-level function and class definitions with two blank lines."
 class InventoryPage(object):
 
     by_title = (By.CLASS_NAME, 'title')
@@ -14,7 +14,8 @@ class InventoryPage(object):
     def __init__(self, driver):
         self.driver = driver
         self.validate_page()
-
+        #TODO PEP 8: "Method definitions inside a class are surrounded by a single blank line."
+        #https://www.python.org/dev/peps/pep-0008/#blank-lines
 
     def validate_page(self): 
         burger_menu = WDW(self.driver, 5).until(EC.visibility_of_element_located((By.ID, 'react-burger-menu-btn'))).is_displayed()
@@ -48,4 +49,4 @@ class InventoryPage(object):
         return self.driver.find_element(*self.by_large_item)
 
 
-
+#TODO not in PEP 8 but usually end of files have one blank line

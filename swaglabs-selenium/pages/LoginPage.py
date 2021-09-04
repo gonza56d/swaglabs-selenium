@@ -1,6 +1,6 @@
 from selenium.webdriver.common.by import By
 
-
+#TODO same PEP 8 observations
 class LoginPage(object):
 
     by_username_field = (By.ID, 'user-name')

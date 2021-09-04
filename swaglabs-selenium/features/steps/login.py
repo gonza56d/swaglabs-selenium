@@ -10,6 +10,8 @@ from pages.InventoryPage import InventoryPage
 
 @Given('The user is in the login page')
 def user_gets_to_login_page(context):
+    #TODO chromedriver is not being tracked by git
+    #use relative path OR use pathlib/os.dir in order to make webdriver work in any computer
     context.driver = webdriver.Chrome(r'C:/Users/pabni/Desktop/Scripts/ProjectsSelenium/swaglabs-selenium/swaglabs-selenium/chromedriver.exe')
     context.driver.maximize_window()
     context.login_page = LoginPage(context.driver)
@@ -23,7 +25,8 @@ def logs_in(context):
     sleep(1)
     
     
-    
+#TODO one .feature file = one .py file
+#TODO PEP 8: "Surround top-level function and class definitions with two blank lines."    
 
 @Then('It takes the user to the inventory page')
 def validates_invetory_page(context):

@@ -14,8 +14,9 @@ def step_impl(context):
     sleep(1)
     context.login_page.perform_login('standard_user', 'secret_sauce')
       
-    
-    
+
+#TODO one .feature file = one .py file
+#TODO PEP 8: "Surround top-level function and class definitions with two blank lines."
     
 
 @Given('is in the inventory page')

@@ -17,7 +17,9 @@ def step_impl(context):
     context.login_page.open('https://www.saucedemo.com')
     sleep(1)
     
-    
+
+#TODO one .feature file = one .py file
+#TODO PEP 8: "Surround top-level function and class definitions with two blank lines."    
 
 
 @When('They enter username and password')
