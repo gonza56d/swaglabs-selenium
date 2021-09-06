@@ -11,6 +11,7 @@ class InventoryPage(object):
     by_logout_button = (By.ID, 'logout_sidebar_link')
     by_backpack_item = (By.ID, 'item_4_title_link')
     by_large_item = (By.XPATH, '//*[@id="inventory_item_container"]/div/div/div[2]/div[1]')
+    by_back_to_products = (By.ID, 'back-to-products')
 
     def __init__(self, driver):
         self.driver = driver
