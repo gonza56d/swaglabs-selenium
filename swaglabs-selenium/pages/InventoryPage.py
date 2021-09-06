@@ -3,6 +3,7 @@ from selenium.webdriver.support.ui import WebDriverWait as WDW
 from selenium.webdriver.support import expected_conditions as EC
 from time import sleep
 
+
 class InventoryPage(object):
 
     by_title = (By.CLASS_NAME, 'title')
@@ -15,12 +16,10 @@ class InventoryPage(object):
         self.driver = driver
         self.validate_page()
 
-
     def validate_page(self): 
         burger_menu = WDW(self.driver, 5).until(EC.visibility_of_element_located((By.ID, 'react-burger-menu-btn'))).is_displayed()
         return burger_menu
 
-    
     def validate_item(self):
         item_text = self.driver.find_element(*self.by_backpack_item).text
         self.backpack_item.click()
@@ -30,7 +29,6 @@ class InventoryPage(object):
     def get_item(self):
         self.backpack_item.text
         
-
     def logout(self):   
         burger_menu = self.driver.find_element(*self.by_burger_menu)
         sleep(1)
@@ -46,6 +44,3 @@ class InventoryPage(object):
     @property
     def item_large_size(self):
         return self.driver.find_element(*self.by_large_item)
-
-
-

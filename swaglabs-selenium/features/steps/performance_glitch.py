@@ -8,27 +8,20 @@ from time import sleep
 from pages.InventoryPage import InventoryPage
 from pages.LoginPage import LoginPage
 
+
 @given('The user may encounter a performance glitch')
 def step_impl(context):
-    context.driver = webdriver.Chrome(r'C:/Users/pabni/Desktop/Scripts/ProjectsSelenium/swaglabs-selenium/swaglabs-selenium/chromedriver.exe')
+    context.driver = webdriver.Chrome(executable_path= r'../chromedriver.exe')
     context.driver.maximize_window()
     context.driver.implicitly_wait(10)
     context.login_page = LoginPage(context.driver)
     context.login_page.open('https://www.saucedemo.com')
     sleep(1)
     
-    
-
-
 @When('They enter username and password')
 def step_impl(context):
     context.login_page.perform_login('standard_user', 'secret_sauce')
     
-    
-    
-
-    
-
 @Then('it should immediatly take them to the inventory page')
 def step_impl(context):
     context.inventory_page = InventoryPage(context.driver)

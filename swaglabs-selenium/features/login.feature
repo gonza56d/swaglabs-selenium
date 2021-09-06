@@ -5,7 +5,6 @@ Feature: Login
     Scenario: User perfoms a successful login
         Given The user is in the login page
         When The user enters username and password
-        # And Clicks the login button
         Then It takes the user to the inventory page
         
 
@@ -13,7 +12,6 @@ Feature: Login
     Scenario: A locked out user tries to login
         Given The user gets to the login page
         When It enters username and password
-        # And Click the login button
         Then An error message should appear
     
     @ProblemUser

@@ -8,7 +8,6 @@ class LoginPage(object):
     by_login_button = (By.ID, 'login-button')
     by_login_robot = (By.CLASS_NAME, 'bot_column')
     by_error_message = (By.CSS_SELECTOR, '#login_button_container > div > form > div.error-message-container.error > h3')
-
     
     def validate_page(self): 
         login_robot  = self.driver.find_element(*self.by_login_robot).is_displayed()
@@ -16,13 +15,10 @@ class LoginPage(object):
 
     def open(self, url : str):
         self.driver.get(url)
-        # self.validate_page()
-   
-
+          
     def __init__(self, driver) -> None:
         self.driver = driver
-        
-    
+            
     def perform_login(self, username: str, password: str):
         self.username_field.send_keys(username)
         self.password_field.send_keys(password)
