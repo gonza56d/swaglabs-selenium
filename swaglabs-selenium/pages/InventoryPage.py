@@ -32,9 +32,7 @@ class InventoryPage(object):
         
     def logout(self):   
         burger_menu = self.driver.find_element(*self.by_burger_menu)
-        sleep(1)
         burger_menu.click()
-        sleep(1)
         logout_button = self.driver.find_element(*self.by_logout_button)
         logout_button.click()
     

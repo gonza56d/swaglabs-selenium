@@ -11,7 +11,7 @@ class LoginPage(object):
     
     def validate_page(self): 
         login_robot  = self.driver.find_element(*self.by_login_robot).is_displayed()
-        assert login_robot == True
+        assert login_robot is True
 
     def open(self, url : str):
         self.driver.get(url)
