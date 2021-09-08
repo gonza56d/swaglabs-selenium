@@ -19,10 +19,10 @@ def step_impl(context, username, password):
 def step_impl(context):
     context.inventory_page = InventoryPage(context.driver)
     context.inventory_page.validate_page()
-
+    
 @When('selects an item')
 def step_impl(context):
-    context.driver.find_element(*context.inventory_page.by_backpack_item)
+    context.item = context.inventory_page.get_item()
 
 @Then("it should take them to the item's page")
 def step_impl(context):
@@ -36,4 +36,5 @@ def step_impl(context):
 @Then('log out')
 def step_impl(context):
     context.inventory_page.logout()
+    context.driver.quit()
     
