@@ -1,3 +1,4 @@
+import builtins
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait as WDW
 from selenium.webdriver.support import expected_conditions as EC
@@ -20,11 +21,7 @@ class InventoryPage(object):
 
     def validate_page(self): 
         burger_menu = self.driver.find_element(*self.by_burger_menu).is_displayed()
-        if burger_menu is True:
-            assert burger_menu is True, 'This user has been locked out'
-        else:
-            error_message_text = self.driver.find_element(*self.by_error_message).text
-            assert error_message_text == 'Epic sadface: Sorry, this user has been locked out.', 'Unexpected Error'
+        assert burger_menu is True, 'Unable to locate burger-menu'
             
 
     def validate_item(self):

@@ -20,9 +20,16 @@ class LoginPage(object):
         self.driver = driver
             
     def perform_login(self, username: str, password: str):
-        self.username_field.send_keys(username)
-        self.password_field.send_keys(password)
-        self.login_button.click()
+        if username == 'locked_out_user':
+            self.username_field.send_keys(username)
+            self.password_field.send_keys(password)
+            self.login_button.click()
+            error_message_text = self.driver.find_element(*self.by_error_message).text
+            assert error_message_text == 'Epic sadface: Sorry, this user has been locked out.', 'Unexpected message'
+        else:
+            self.username_field.send_keys(username)
+            self.password_field.send_keys(password)
+            self.login_button.click()
     
     def locked_out_message(self):
         error_text = self.driver.find_element(*self.by_error_message).text
