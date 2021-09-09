@@ -9,28 +9,23 @@ class LoginPage(object):
     by_login_robot = (By.CLASS_NAME, 'bot_column')
     by_error_message = (By.CSS_SELECTOR, '#login_button_container > div > form > div.error-message-container.error > h3')
     
+
     def validate_page(self): 
         login_robot  = self.driver.find_element(*self.by_login_robot).is_displayed()
         assert login_robot is True
 
     def open(self, url : str):
         self.driver.get(url)
-          
+
     def __init__(self, driver) -> None:
         self.driver = driver
-            
+
     def perform_login(self, username: str, password: str):
-        if username == 'locked_out_user':
-            self.username_field.send_keys(username)
-            self.password_field.send_keys(password)
-            self.login_button.click()
-            error_message_text = self.driver.find_element(*self.by_error_message).text
-            assert error_message_text == 'Epic sadface: Sorry, this user has been locked out.', 'Unexpected message'
-        else:
-            self.username_field.send_keys(username)
-            self.password_field.send_keys(password)
-            self.login_button.click()
-    
+        self.username_field.send_keys(username)
+        self.password_field.send_keys(password)
+        self.login_button.click()
+
+
     def locked_out_message(self):
         error_text = self.driver.find_element(*self.by_error_message).text
         return error_text

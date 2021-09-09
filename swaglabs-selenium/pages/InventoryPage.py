@@ -15,15 +15,19 @@ class InventoryPage(object):
     by_back_to_products = (By.ID, 'back-to-products')
     by_error_message = (By.CSS_SELECTOR, '#login_button_container > div > form > div.error-message-container.error > h3')
 
+
     def __init__(self, driver):
         self.driver = driver
         self.validate_page()
 
     def validate_page(self): 
-        burger_menu = self.driver.find_element(*self.by_burger_menu).is_displayed()
-        assert burger_menu is True, 'Unable to locate burger-menu'
+        try:
+            burger_menu = WDW(self.driver, 5).until(EC.visibility_of_element_located((By.ID, 'react-burger-menu-btn'))).is_displayed()
+            assert burger_menu is True, 'Unable to locate burger-menu'
+        except:
+            self.driver.close()
+            assert False, 'Epic sadface: Sorry, this user has been locked out.'
             
-
     def validate_item(self):
         item_text = self.driver.find_element(*self.by_backpack_item).text
         self.backpack_item.click()
@@ -34,7 +38,7 @@ class InventoryPage(object):
         backpack_text = self.driver.find_element(*self.by_backpack_item).text   
         self.driver.find_element(*self.by_backpack_item)
         return backpack_text
-        
+
     def logout(self):   
         burger_menu = self.driver.find_element(*self.by_burger_menu)
         burger_menu.click()
