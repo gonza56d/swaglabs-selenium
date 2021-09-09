@@ -22,7 +22,7 @@ class InventoryPage(object):
 
     def validate_page(self): 
         try:
-            burger_menu = WDW(self.driver, 5).until(EC.visibility_of_element_located((By.ID, 'react-burger-menu-btn'))).is_displayed()
+            burger_menu = self.driver.find_element(*self.by_burger_menu).is_displayed()
             assert burger_menu is True, 'Unable to locate burger-menu'
         except:
             self.driver.close()
