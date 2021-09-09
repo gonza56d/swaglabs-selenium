@@ -19,12 +19,13 @@ class InventoryPage(object):
         self.validate_page()
 
     def validate_page(self): 
-        try:
-            burger_menu = self.driver.find_element(*self.by_burger_menu).is_displayed()
+        burger_menu = self.driver.find_element(*self.by_burger_menu).is_displayed()
+        if burger_menu is True:
             assert burger_menu is True, 'This user has been locked out'
-        except:
-            error_text = self.driver.find_element(*self.by_error_message).text
-            assert error_text == 'Epic sadface: Sorry, this user has been locked out.'
+        else:
+            error_message_text = self.driver.find_element(*self.by_error_message).text
+            assert error_message_text == 'Epic sadface: Sorry, this user has been locked out.', 'Unexpected Error'
+            
 
     def validate_item(self):
         item_text = self.driver.find_element(*self.by_backpack_item).text

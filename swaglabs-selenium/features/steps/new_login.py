@@ -20,6 +20,7 @@ def step_impl(context):
     context.inventory_page = InventoryPage(context.driver)
     context.inventory_page.validate_page()
     
+    
 @When('selects an item')
 def step_impl(context):
     context.item = context.inventory_page.get_item()
