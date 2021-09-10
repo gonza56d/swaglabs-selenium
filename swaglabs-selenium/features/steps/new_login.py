@@ -15,6 +15,7 @@ def step_impl(context):
 @When('the user logs in with {username} and {password}')
 def step_impl(context, username, password):
     context.login_page.perform_login(username, password)
+    context.login_page.run_validations()
 
 
 @When('reaches the inventory page')
