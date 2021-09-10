@@ -9,6 +9,38 @@ class LoginPage(object):
     by_login_robot = (By.CLASS_NAME, 'bot_column')
     by_error_message = (By.CSS_SELECTOR, '#login_button_container > div > form > div.error-message-container.error > h3')
     
+    by_a = (By.ID, 'mock')
+    by_b = (By.ID, 'mock')
+    by_c = (By.ID, 'mock')
+
+    def run_validations(self):
+        self.validate_a()
+        self.valudate_b()
+        self.validate_c()
+    
+    def validate_a(self):
+        text = 'a'
+        a_text = self.driver.find_element(*self.by_a).text
+        if text != a_text:
+            raise ValueError("'A' text was not the expected")
+    
+    def validate_b(self):
+        text = 'b'
+        b_text = self.driver.find_element(*self.by_b).text
+        if text != b_text:
+            raise ValueError("'B' text was not the expected")
+
+    def validate_c(self):
+        text = 'c'
+        c_text = self.driver.find_element(*self.by_c).text
+        if text != c_text:
+            raise ValueError("'C' text was not the expected")
+
+    def validate_b(self):
+        pass
+
+    def validate_c(self):
+        pass
 
     def validate_page(self): 
         login_robot  = self.driver.find_element(*self.by_login_robot).is_displayed()
