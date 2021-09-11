@@ -12,6 +12,11 @@ class LoginPage(object):
 
     def validate_page(self): 
         login_robot  = self.driver.find_element(*self.by_login_robot).is_displayed()
+        # TODO: assertions should be in the steps, pages should have
+        # methods that return the values to be validated with assertions
+        # but not making the assertions inside by itself.
+        # (remember not to return Selenium stuff such as WebElements or Locators,
+        # but their values (texts, states, etc), WebElements and Locators concern to pages only).
         assert login_robot is True
 
     def open(self, url : str):
