@@ -18,26 +18,20 @@ class InventoryPage(object):
 
     def __init__(self, driver):
         self.driver = driver
-        self.validate_page()
-
+        
     def validate_page(self): 
-        try:
-            burger_menu = self.driver.find_element(*self.by_burger_menu).is_displayed()
-            assert burger_menu is True, 'Unable to locate burger-menu'
-        except:
-            self.driver.close()
-            assert False, 'Epic sadface: Sorry, this user has been locked out.'
-            
-    def validate_item(self):
-        item_text = self.driver.find_element(*self.by_backpack_item).text
-        self.backpack_item.click()
-        large_item = self.driver.find_element(*self.by_large_item).text
-        assert item_text == large_item, "Problem encountered. Item's page does not match item selected."
+        burger_menu = self.check_item(*self.by_burger_menu)
+        return burger_menu
     
-    def get_item(self):
-        backpack_text = self.driver.find_element(*self.by_backpack_item).text   
-        self.driver.find_element(*self.by_backpack_item)
-        return backpack_text
+    def check(self, item):
+        item = self.driver.find_element(*item).is_displayed()  
+        return item
+    
+    def clicks_item(self, item):
+        self.driver.find_element(*item).click()
+    
+    def get_text_from(self, item):
+        return self.driver.find_element(*item).text
 
     def logout(self):   
         burger_menu = self.driver.find_element(*self.by_burger_menu)

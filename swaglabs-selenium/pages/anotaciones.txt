@@ -1,0 +1,3 @@
+respectar la arquitectura pom
+hacer feature del carrito
+plataformas y navegadores
