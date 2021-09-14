@@ -2,7 +2,6 @@ from behave import *
 from pages.InventoryPage import InventoryPage
 from pages.LoginPage import LoginPage
 from resources.exceptions import *
-from time import sleep
 
 
 @Given('The user has logged in with {username} and {password}')
@@ -22,21 +21,19 @@ def step_impl(context, username, password):
 @When('They order the price from low to high')
 def step_impl(context):
     context.inventory_page.selects_order()
-    sleep(1)
 
 
 @When('Selects an item')
 def step_impl(context):
     context.backpack_text = context.inventory_page.get_backpack_text()
     context.inventory_page.selects_item()
-    sleep(1)
 
 
 @When("Visits the item's page")
 def step_impl(context):
     text = context.inventory_page.gets_large_item_text()
     if text != context.backpack_text:
-        raise ItemValidationError
+        raise ItemValidationError("Item's page does not match item selected in the inventory page")
 
 
 @When('goes back')
@@ -47,11 +44,8 @@ def step_impl(context):
 @When('They add things to the shopping cart')
 def step_impl(context):
     context.inventory_page.adds_tshirt()
-    sleep(1)
     context.inventory_page.adds_backpack()
-    sleep(1)
     context.inventory_page.adds_light()
-    sleep(1)
 
 
 @When('checks the shopping cart')
