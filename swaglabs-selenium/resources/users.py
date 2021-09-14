@@ -2,8 +2,7 @@ class StandardUser:
     username = 'standard_user'
     password = 'secret_sauce'
 
-# TODO pep 8: "Surround top-level function and class definitions with two blank lines."
-#https://www.python.org/dev/peps/pep-0008/#blank-lines
+
 class LockedOutUser:
     username = 'locked_out_user'
     password = 'secret_sauce'

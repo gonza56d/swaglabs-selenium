@@ -6,10 +6,7 @@ Feature: SwagLabs Login
         Given the user is in the login page
         When the user logs in with <username> and <password>
             And reaches the inventory page
-            And selects an item
-        Then it should take them to the item's page
-            And come back to the inventory page
-            And log out
+        Then log out
     
     Examples:
         | username                | password      |
