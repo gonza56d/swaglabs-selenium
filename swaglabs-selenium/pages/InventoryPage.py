@@ -20,7 +20,7 @@ class InventoryPage(object):
         self.driver = driver
         
     def validate_page(self): 
-        burger_menu = self.check_item(*self.by_burger_menu)
+        burger_menu = self.driver.find_element(*self.by_burger_menu).is_displayed()
         return burger_menu
     
     def check(self, item):
@@ -30,8 +30,20 @@ class InventoryPage(object):
     def clicks_item(self, item):
         self.driver.find_element(*item).click()
     
-    def get_text_from(self, item):
-        return self.driver.find_element(*item).text
+    def get_backpack_text(self, item):
+        return self.driver.find_element(*self.by_backpack_item).text
+
+    def selects_item(self):
+        text = self.driver.find_element(*self.by_backpack_item).text
+        self.driver.find_element(*self.by_backpack_item).click()
+        return text
+
+    def gets_large_item_text(self):
+        text = self.driver.find_element(*self.by_large_item).text
+        return text
+
+    def go_back_to_inventory(self):
+        self.driver.find_element(*self.by_back_to_products).click()
 
     def logout(self):   
         burger_menu = self.driver.find_element(*self.by_burger_menu)
