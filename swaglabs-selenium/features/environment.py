@@ -32,4 +32,3 @@ def before_feature(context, feature):
 
 def after_feature(context, feature):
     context.driver.quit()
-# need to check platforms
