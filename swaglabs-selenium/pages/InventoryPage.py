@@ -64,8 +64,11 @@ class InventoryPage(object):
         return q_items
         
     def validate_page(self): 
-        burger_menu = self.burger_menu.is_displayed()
-        return burger_menu
+        try:
+            burger_menu = self.burger_menu.is_displayed()
+            return burger_menu
+        except:
+            return False
     
     def check(self, item):
         item = self.driver.find_element(*item).is_displayed()  
