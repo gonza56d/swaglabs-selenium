@@ -117,10 +117,22 @@ class InventoryPage(object):
         logout_button.click()
 
     def calculates_total(self):
-        item_total = self.item_total.text
-        tax = self.tax.text
-        total = self.total.text
-        print(f'The item total is:{item_total} \n the tax total is: {tax}\n the final total is:{total}')
+        item_total_text = self.item_total.text
+        item_total = self.get_amount(item_total_text)
+        type(item_total)
+        print(item_total)
+        tax_text = self.tax.text
+        tax = self.get_amount(tax_text)
+        type(tax)
+        print(tax)
+        total_text = self.total.text
+        total = self.get_amount(total_text)
+        type(total)
+        print(total)
+        print(f'The item total is:{item_total} \n The tax total is: {tax}\n The final total is:{total}')
+        print(item_total + tax)
+        if item_total + tax == total:
+            return True
 
     def checks_complete(self):
         complete = self.checkout_complete.is_displayed()
@@ -129,12 +141,23 @@ class InventoryPage(object):
     def finish_checkout(self):
         self.finish_button.click()
 
+    def get_amount(self, amount):
+        price = []
+        for i in amount:
+            if i.isnumeric():
+                price.append(i)
+                intprice = "".join(price)
+                int(intprice)
+        return intprice #returns string instead of integer
+
     @property
     def finish_button(self):
         return self.driver.find_element(*self.by_finish)
+
     @property
     def checkout_complete(self):
         return self.driver.find_element(*self.by_checkout_complete)
+
     @property
     def tax(self):
         return self.driver.find_element(*self.by_tax)
@@ -153,9 +176,11 @@ class InventoryPage(object):
     @property
     def postal_code_field(self):
         return self.driver.find_element(*self.by_postal_code)
+
     @property
     def last_name_field(self):
         return self.driver.find_element(*self.by_last_name)
+
     @property
     def first_name_field(self):
         return self.driver.find_element(*self.by_first_name)

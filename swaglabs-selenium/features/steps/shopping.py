@@ -71,12 +71,12 @@ def step_impl(context):
 
 @Then('the total should match the sum of the items plus taxes')
 def step_impl(context):
-    context.inventory_page.calculates_total()
+    total = context.inventory_page.calculates_total()  # TODO this is not doing anything
+    assert total is True, 'Total does not match items total plus taxes.'
     context.inventory_page.finish_checkout()
 
 
 @Then('completes the process')
 def step_impl(context):
     complete = context.inventory_page.checks_complete()
-    if not complete:
-        raise PageValidationError()
+    assert complete is True, 'Could not complete the process'
