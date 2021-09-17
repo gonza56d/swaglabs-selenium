@@ -1,7 +1,7 @@
 from behave import *
 from selenium import webdriver
-from pages.InventoryPage import InventoryPage
-from pages.LoginPage import LoginPage
+from pages.inventory_page import InventoryPage
+from pages.login_page import LoginPage
 from resources.exceptions import PageValidationError, ItemValidationError
 
 

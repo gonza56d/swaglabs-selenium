@@ -1,6 +1,6 @@
 from behave import *
-from pages.InventoryPage import InventoryPage
-from pages.LoginPage import LoginPage
+from pages.inventory_page import InventoryPage
+from pages.login_page import LoginPage
 from resources.exceptions import *
 
 
@@ -71,7 +71,7 @@ def step_impl(context):
 
 @Then('the total should match the sum of the items plus taxes')
 def step_impl(context):
-    total = context.inventory_page.calculates_total()  # TODO this is not doing anything
+    total = context.inventory_page.calculates_total()
     assert total is True, 'Total does not match items total plus taxes.'
     context.inventory_page.finish_checkout()
 

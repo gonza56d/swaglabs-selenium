@@ -119,16 +119,10 @@ class InventoryPage(object):
     def calculates_total(self):
         item_total_text = self.item_total.text
         item_total = self.get_amount(item_total_text)
-        type(item_total)
-        print(item_total)
         tax_text = self.tax.text
         tax = self.get_amount(tax_text)
-        type(tax)
-        print(tax)
         total_text = self.total.text
         total = self.get_amount(total_text)
-        type(total)
-        print(total)
         print(f'The item total is:{item_total} \n The tax total is: {tax}\n The final total is:{total}')
         print(item_total + tax)
         if item_total + tax == total:
@@ -144,11 +138,11 @@ class InventoryPage(object):
     def get_amount(self, amount):
         price = []
         for i in amount:
-            if i.isnumeric():
+            if i.isdigit():
                 price.append(i)
                 intprice = "".join(price)
-                int(intprice)
-        return intprice #returns string instead of integer
+                actual_price = int(intprice)
+        return actual_price
 
     @property
     def finish_button(self):
